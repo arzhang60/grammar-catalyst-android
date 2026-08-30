@@ -18,6 +18,7 @@ import android.print.PrintDocumentInfo
 import android.print.PrintManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -737,7 +738,7 @@ fun GrammarDiagnosticApp() {
                         Card(
                             modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
                             colors = CardDefaults.cardColors(containerColor = Color(0xFFEFF6FF)),
-                            border = CardDefaults.outlinedCardBorder().copy(brush = androidx.compose.ui.graphics.SolidColor(Color(0xFFBFDBFE)))
+                            border = BorderStroke(1.dp, Color(0xFFBFDBFE))
                         ) {
                             Column(modifier = Modifier.fillMaxWidth().padding(18.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(studentName, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1E40AF))
@@ -792,7 +793,7 @@ fun GrammarDiagnosticApp() {
                                             Text("${String.format(Locale.US, "%.1f", a.earnedScore)}/${a.totalMaxScore.toInt()} (${a.percentage.toInt()}%)", color = color, fontWeight = FontWeight.Bold, fontSize = 12.sp)
                                         }
                                         Spacer(modifier = Modifier.height(4.dp))
-                                        LinearProgressIndicator(progress = { a.percentage / 100f }, modifier = Modifier.fillMaxWidth().height(6.dp), color = color, trackColor = Color(0xFFE2E8F0))
+                                        LinearProgressIndicator(progress = a.percentage / 100f, modifier = Modifier.fillMaxWidth().height(6.dp), color = color, trackColor = Color(0xFFE2E8F0))
                                     }
                                 }
                             }
